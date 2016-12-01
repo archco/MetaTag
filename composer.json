@@ -1,0 +1,23 @@
+{
+    "name": "cosmos/metatag",
+    "description": "The helper class for make html meta tag on php and laravel.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "archco",
+            "email": "archcoster@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cosmos\\MetaTag\\": "src/"
+        }
+    }
+}

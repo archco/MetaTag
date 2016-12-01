@@ -1,2 +1,2 @@
 # MetaTag
-Helper class for generate html meta tag on use php and laravel
+The helper class for make html meta tag on php and laravel.
