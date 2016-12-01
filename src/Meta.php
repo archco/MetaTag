@@ -1,5 +1,4 @@
 <?php 
-
 namespace Cosmos\MetaTag;
 
 class Meta
@@ -28,8 +27,18 @@ class Meta
     public function setProperties(array $array)
     {
         foreach ($array as $key => $value) {
-            $this->createProperty($key, $value);
+            $this->set($key, $value);
         }
+    }
+
+    /**
+     * get properties
+     * 
+     * @return array
+     */
+    public function getProperties()
+    {
+        return get_object_vars($this);
     }
 
     /**
@@ -39,29 +48,30 @@ class Meta
      */
     public function defaultValues()
     {
-        return [
-            'title' => "Test Title",
-            'description' => "This is description text.",
-            'author' => "James",
-            'keywords' => ['PHP', 'Composer', 'Code', 'Github'],
-            'image' => "http://php.net/images/logo.php",
-            'url' => "https://github.com/archco/MetaTag"
-        ];
+        return [];
     }
 
     /**
-     * create property
+     * set property
      * 
      * @param  string $name
      * @param  string|array $value
      * @return string
      */
-    public function createProperty($name, $value)
+    public function set($name, $value)
     {
         if ($name == 'keywords' && is_array($value)) {
             $value = implode(",", $value);
         }
         return $this->{$name} = $value;
+    }
+
+    public function get($name)
+    {
+        if (! isset($this->{$name})) {
+            return null;
+        }
+        return $this->{$name};
     }
 
     /**

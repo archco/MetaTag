@@ -15,7 +15,7 @@ class MetaExtend extends Meta
         return [
             'title' => "Extended Title",
             'description' => "This is extend description text.",
-            'author' => "Faul",
+            'author' => "James",
             'keywords' => ['PHP', 'Composer', 'Code', 'Github'],
             'image' => "http://php.net/images/logo.php",
             'url' => "https://github.com/archco/MetaTag"
