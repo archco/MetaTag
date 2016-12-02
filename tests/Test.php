@@ -36,26 +36,38 @@ class Test extends TestCase
 
     public function testOne()
     {
+        // use both.
         $meta = new Meta($this->testValues);
         $metaTag = new MetaTag($meta);
-        
-        echo $metaTag->display();
+
+        echo $metaTag->display() . PHP_EOL;
     }
 
     public function testTwo()
     {
-        $meta = new MetaExtend;
-        $arr = ['title', 'content'];
-        $assoc = ['title' => 'Good', 'content' => 'healthy'];
+        // Use only meta as data object
+        $meta = new Meta($this->defaults);
+        // add property
+        $meta->good = "thing";
+        $meta->set('name', 'content');
+        // modify property
+        $meta->author = "James";
+        $meta->set('name', 'another content');
+        // remove property
+        $meta->remove('good');
 
-        $this->assertTrue($meta->isAssoc($assoc));
-        $this->assertFalse($meta->isAssoc($arr));
+        $this->assertNotEmpty($meta->getProperties());
+        var_dump($meta);
+        echo PHP_EOL;
     }
 
     public function testThree()
     {
-        $meta = new Meta();
-
-        $this->assertEmpty($meta->getProperties());
+        // use extends Meta
+        $meta = new MetaExtend;
+        
+        $this->assertInstanceOf(Meta::class, $meta);
+        var_dump($meta);
+        echo PHP_EOL;
     }
 }

@@ -32,7 +32,7 @@ class Meta
     }
 
     /**
-     * get properties
+     * get properties as assosiative array
      * 
      * @return array
      */
@@ -66,12 +66,27 @@ class Meta
         return $this->{$name} = $value;
     }
 
+    /**
+     * get property
+     * 
+     * @param  [type] $name [description]
+     * @return [type]       [description]
+     */
     public function get($name)
     {
-        if (! isset($this->{$name})) {
+        if (! property_exists($this, $name)) {
             return null;
         }
         return $this->{$name};
+    }
+
+    public function remove($name)
+    {
+        if (property_exists($this, $name)) {
+            unset($this->{$name});
+            return true;
+        }
+        return false;
     }
 
     /**

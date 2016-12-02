@@ -11,16 +11,29 @@ class MetaTag
         $this->setMeta($meta);
     }
 
+    /**
+     * get Meta
+     * @return \Cosmos\MetaTag\Meta
+     */
     public function getMeta()
     {
         return $this->meta;
     }
 
+    /**
+     * set Meta
+     * @param \Cosmos\MetaTag\Meta $meta
+     */
     public function setMeta(Meta $meta)
     {
         $this->meta = $meta;
     }
 
+    /**
+     * display mata tag
+     * 
+     * @return string
+     */
     public function display()
     {
         $items = $this->meta->getProperties();
@@ -32,6 +45,12 @@ class MetaTag
         return $tag;
     }
 
+    /**
+     * make meta tag
+     * @param  string $name
+     * @param  string $content
+     * @return string
+     */
     public function makeTag($name, $content)
     {
         if ($this->isOg($name)) {
@@ -41,6 +60,12 @@ class MetaTag
         return $this->makeNormalTag($name, $content);
     }
 
+    /**
+     * is open graph?
+     * 
+     * @param  string  $name
+     * @return bool
+     */
     protected function isOg($name)
     {
         if (substr($name, 0, 2) == 'og') {
@@ -49,11 +74,25 @@ class MetaTag
         return false;
     }
 
+    /**
+     * make normal meta tag
+     * 
+     * @param  string $name
+     * @param  string $content
+     * @return string
+     */
     protected function makeNormalTag($name, $content)
     {
         return "<meta name=\"$name\" content=\"$content\">";
     }
 
+    /**
+     * make og meta tag
+     * 
+     * @param  string $name
+     * @param  string $content
+     * @return string
+     */
     protected function makeOgTag($name, $content)
     {
         return "<meta property=\"$name\" content=\"$content\">";
