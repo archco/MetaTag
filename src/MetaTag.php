@@ -1,12 +1,11 @@
-<?php 
+<?php
 namespace Cosmos\MetaTag;
-
 
 class MetaTag
 {
     protected $meta;
 
-    function __construct(Meta $meta)
+    public function __construct(Meta $meta)
     {
         $this->setMeta($meta);
     }
@@ -31,7 +30,7 @@ class MetaTag
 
     /**
      * display mata tag
-     * 
+     *
      * @return string
      */
     public function display()
@@ -62,7 +61,7 @@ class MetaTag
 
     /**
      * is open graph?
-     * 
+     *
      * @param  string  $name
      * @return bool
      */
@@ -76,7 +75,7 @@ class MetaTag
 
     /**
      * make normal meta tag
-     * 
+     *
      * @param  string $name
      * @param  string $content
      * @return string
@@ -88,7 +87,7 @@ class MetaTag
 
     /**
      * make og meta tag
-     * 
+     *
      * @param  string $name
      * @param  string $content
      * @return string

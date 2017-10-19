@@ -1,14 +1,14 @@
-<?php 
+<?php
 namespace Cosmos\MetaTag;
 
 class Meta
 {
     /**
      * __construct
-     * 
+     *
      * @param array|null $data
      */
-    function __construct($data = null)
+    public function __construct($data = null)
     {
         $defaultValues = $this->defaultValues();
         $this->setProperties($defaultValues);
@@ -20,7 +20,7 @@ class Meta
 
     /**
      * set properties
-     * 
+     *
      * @param array $data
      * @return void
      */
@@ -33,7 +33,7 @@ class Meta
 
     /**
      * get properties as assosiative array
-     * 
+     *
      * @return array
      */
     public function getProperties()
@@ -42,8 +42,8 @@ class Meta
     }
 
     /**
-     * default values
-     * 
+     * default values. - It's for Override.
+     *
      * @return array
      */
     public function defaultValues()
@@ -53,7 +53,7 @@ class Meta
 
     /**
      * set property
-     * 
+     *
      * @param  string $name
      * @param  string|array $value
      * @return string
@@ -68,13 +68,13 @@ class Meta
 
     /**
      * get property
-     * 
+     *
      * @param  [type] $name [description]
      * @return [type]       [description]
      */
     public function get($name)
     {
-        if (! property_exists($this, $name)) {
+        if (!property_exists($this, $name)) {
             return null;
         }
         return $this->{$name};
@@ -91,7 +91,7 @@ class Meta
 
     /**
      * isAssoc
-     * 
+     *
      * @param  array   $array
      * @return bool
      */

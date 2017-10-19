@@ -3,6 +3,7 @@
     "description": "The helper class for make html meta tag on php and laravel.",
     "type": "library",
     "license": "MIT",
+    "homepage": "https://github.com/archco/MetaTag#readme",
     "authors": [
         {
             "name": "archco",
@@ -10,10 +11,10 @@
         }
     ],
     "require": {
-        "php": "^7.0"
+        "php": ">=7.0.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.6"
+        "phpunit/phpunit": "~6.0"
     },
     "autoload": {
         "psr-4": {
