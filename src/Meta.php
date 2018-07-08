@@ -1,4 +1,5 @@
 <?php
+
 namespace Cosmos\MetaTag;
 
 class Meta
@@ -32,7 +33,7 @@ class Meta
     }
 
     /**
-     * get properties as assosiative array
+     * get properties as associative array
      *
      * @return array
      */
@@ -69,8 +70,8 @@ class Meta
     /**
      * get property
      *
-     * @param  [type] $name [description]
-     * @return [type]       [description]
+     * @param  string $name
+     * @return string
      */
     public function get($name)
     {
@@ -80,6 +81,12 @@ class Meta
         return $this->{$name};
     }
 
+    /**
+     * remove property
+     *
+     * @param string $name
+     * @return void
+     */
     public function remove($name)
     {
         if (property_exists($this, $name)) {

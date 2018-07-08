@@ -1,4 +1,5 @@
 <?php
+
 namespace Cosmos\MetaTag;
 
 class MetaTag
@@ -12,6 +13,7 @@ class MetaTag
 
     /**
      * get Meta
+     *
      * @return \Cosmos\MetaTag\Meta
      */
     public function getMeta()
@@ -21,6 +23,7 @@ class MetaTag
 
     /**
      * set Meta
+     *
      * @param \Cosmos\MetaTag\Meta $meta
      */
     public function setMeta(Meta $meta)
@@ -29,7 +32,7 @@ class MetaTag
     }
 
     /**
-     * display mata tag
+     * display meta tag
      *
      * @return string
      */
@@ -53,10 +56,10 @@ class MetaTag
     public function makeTag($name, $content)
     {
         if ($this->isOg($name)) {
-            return $this->makeOgTag($name, $content);
+            return "<meta property=\"$name\" content=\"$content\">";
+        } else {
+            return "<meta name=\"$name\" content=\"$content\">";
         }
-
-        return $this->makeNormalTag($name, $content);
     }
 
     /**
@@ -67,33 +70,6 @@ class MetaTag
      */
     protected function isOg($name)
     {
-        if (substr($name, 0, 2) == 'og') {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * make normal meta tag
-     *
-     * @param  string $name
-     * @param  string $content
-     * @return string
-     */
-    protected function makeNormalTag($name, $content)
-    {
-        return "<meta name=\"$name\" content=\"$content\">";
-    }
-
-    /**
-     * make og meta tag
-     *
-     * @param  string $name
-     * @param  string $content
-     * @return string
-     */
-    protected function makeOgTag($name, $content)
-    {
-        return "<meta property=\"$name\" content=\"$content\">";
+        return substr($name, 0, 2) == 'og';
     }
 }
