@@ -1,16 +1,15 @@
 <?php
 
-use Cosmos\MetaTag\Meta;
 use Cosmos\MetaTag\MetaTag;
 use PHPUnit\Framework\TestCase;
 
 class MetaTagTest extends TestCase
 {
-    protected $meta;
+    protected $data;
 
     public function setUp()
     {
-        $this->meta = new Meta([
+        $this->data = [
             'title' => 'Extended Title',
             'description' => 'This is extend description text.',
             'author' => 'Paul',
@@ -23,14 +22,29 @@ class MetaTagTest extends TestCase
             'og:image' => 'http://php.net/images/logo.php',
             'og:url' => 'https://github.com/archco/MetaTag',
             'twitter:card' => 'summary_large_image',
-        ]);
+        ];
     }
 
-    public function testCanBeCreatedFromMeta()
+    public function testCanBeCreated()
     {
-        $metaTag = new MetaTag($this->meta);
-        // print_r($metaTag);
+        $metaTag = new MetaTag(['title' => 'Hello']);
 
         $this->assertInstanceOf(MetaTag::class, $metaTag);
+        $this->assertEquals($metaTag->title, 'Hello');
+    }
+
+    public function testMakeTagShouldWorks()
+    {
+        $metaTag = new MetaTag();
+
+        $this->assertEquals(
+            $metaTag->makeTag('author', 'Paul'),
+            '<meta name="author" content="Paul">'
+        );
+        // og
+        $this->assertEquals(
+            $metaTag->makeTag('og:type', 'website'),
+            '<meta property="og:type" content="website">'
+        );
     }
 }

@@ -2,33 +2,16 @@
 
 namespace Cosmos\MetaTag;
 
-class MetaTag
+class MetaTag extends Meta
 {
-    protected $meta;
-
-    public function __construct(Meta $meta)
-    {
-        $this->setMeta($meta);
-    }
-
     /**
-     * get Meta
+     * __construct
      *
-     * @return \Cosmos\MetaTag\Meta
+     * @param array|null $data
      */
-    public function getMeta()
+    public function __construct($data = null)
     {
-        return $this->meta;
-    }
-
-    /**
-     * set Meta
-     *
-     * @param \Cosmos\MetaTag\Meta $meta
-     */
-    public function setMeta(Meta $meta)
-    {
-        $this->meta = $meta;
+        parent::__construct($data);
     }
 
     /**
@@ -38,7 +21,7 @@ class MetaTag
      */
     public function display()
     {
-        $items = $this->meta->getProperties();
+        $items = $this->getProperties();
         $tag = "";
 
         foreach ($items as $name => $content) {
