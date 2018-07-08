@@ -30,6 +30,7 @@ class Meta
         foreach ($array as $key => $value) {
             $this->set($key, $value);
         }
+        return $this;
     }
 
     /**
@@ -61,10 +62,11 @@ class Meta
      */
     public function set($name, $value)
     {
-        if ($name == 'keywords' && is_array($value)) {
-            $value = implode(",", $value);
+        if ($name == 'keywords') {
+            return $this->setKeywords($value);
         }
-        return $this->{$name} = $value;
+        $this->{$name} = $value;
+        return $this;
     }
 
     /**
@@ -105,5 +107,31 @@ class Meta
     public function isAssoc(array $array)
     {
         return array_keys($array) !== range(0, count($array) - 1);
+    }
+
+    /**
+     * Set `keywords` property
+     *
+     * @param string|array $value
+     * @return this
+     */
+    public function setKeywords($value)
+    {
+        // if empty value, remove 'keywords' property.
+        if (empty($value)) {
+            $this->remove('keywords');
+            return $this;
+        }
+
+        // if set keywords, merge with old value.
+        if (is_string($value)) {
+            $value = explode(',', $value);
+        }
+        $oldValue = empty($this->keywords)
+            ? []
+            : explode(',', $this->keywords);
+        $value = array_unique(array_merge($oldValue, $value));
+        $this->keywords = implode(",", $value);
+        return $this;
     }
 }

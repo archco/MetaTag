@@ -51,4 +51,27 @@ class MetaTest extends TestCase
 
         $this->assertEmpty($meta->get('url'));
     }
+
+    public function testSetKeywordsAsString()
+    {
+        $meta = new Meta(['keywords' => 'a,b,c']);
+        $meta->set('keywords', 'c,d,e');
+
+        $this->assertEquals($meta->get('keywords'), 'a,b,c,d,e');
+    }
+
+    public function testSetKeywordsAsArray()
+    {
+        $meta = new Meta(['keywords' => 'a,b,c']);
+        $meta->set('keywords', ['c', 'd', 'e']);
+
+        $this->assertEquals($meta->get('keywords'), 'a,b,c,d,e');
+    }
+
+    public function testSetKeywordsAsEmpty()
+    {
+        $meta = new Meta(['keywords' => 'a,b,c']);
+        $meta->set('keywords', '');
+        $this->assertEquals($meta->get('keywords'), null);
+    }
 }
