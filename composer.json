@@ -1,6 +1,6 @@
 {
     "name": "cosmos/metatag",
-    "description": "The helper class for make html meta tag on php and laravel.",
+    "description": "It's the library class for helpful the making html meta tags.",
     "type": "library",
     "license": "MIT",
     "homepage": "https://github.com/archco/MetaTag#readme",

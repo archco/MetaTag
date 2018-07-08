@@ -1,24 +1,19 @@
 # MetaTag
 
-The helper class for make html meta tag on php and laravel.
+It's the library class for helpful the making html meta tags.
 
-## Summary
+## Install
 
-- Meta - simple data object.
-- MetaTag - generate `<meta>`tag by Meta.
-
-## Installation
-
-```sh
+``` sh
 composer require cosmos/metatag
 ```
 
 ## Usage
 
-### Use Meta and MetaTag
+### Basic
 
-```php
-use Cosmos\MetaTag\Meta;
+``` php
+
 use Cosmos\MetaTag\MetaTag;
 
 $data = [
@@ -27,18 +22,18 @@ $data = [
   'keywords' => ['PHP', 'Composer', 'Code', 'Github']
 ];
 
-$meta = new Meta($data);
-$metaTag = new MetaTag($meta);
+$metaTag = new MetaTag($data);
 
 echo $metaTag->display();
 ```
 
-### Use only meta as data object
+### Modify data
 
-```php
-use Cosmos\MetaTag\Meta;
+``` php
 
-$meta = new Meta($data);
+use Cosmos\MetaTag\MetaTag;
+
+$meta = new MetaTag($data);
 
 // add property
 $meta->good = "thing";
