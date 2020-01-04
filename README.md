@@ -1,6 +1,6 @@
 # MetaTag
 
-It's the library class for helpful the making html meta tags.
+A helpful library class for making HTML `<meta>` tags.
 
 ## Install
 
@@ -17,17 +17,20 @@ composer require cosmos/metatag
 use Cosmos\MetaTag\MetaTag;
 
 $data = [
-  'description' => "The helper class for make html meta tag on php and laravel.",
-  'author' => 'archco',
+  'description' => "A helper class for making html meta tag.",
+  'author' => 'John',
   'keywords' => ['PHP', 'Composer', 'Code', 'Github']
 ];
 
 $metaTag = new MetaTag($data);
 
 echo $metaTag->display();
+// <meta property="description" content="A helper class for making html meta tag.">
+// <meta property="author" content="John">
+// <meta property="keywords" content="PHP,Composer,Code,Github">
 ```
 
-### Modify data
+### Access Properties
 
 ``` php
 
@@ -35,16 +38,15 @@ use Cosmos\MetaTag\MetaTag;
 
 $meta = new MetaTag($data);
 
-// add property
-$meta->good = "thing";
-$meta->set('name', 'content');
-
-// modify property
+// add or modify properties.
 $meta->author = "James";
 $meta->set('name', 'another content');
 
+// get property.
+$name = $meta->get('name');
+
 // remove property
-$meta->remove('good');
+$meta->remove('name');
 ```
 
 ## License

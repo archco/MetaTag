@@ -7,7 +7,7 @@ class MetaTagTest extends TestCase
 {
     protected $data;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->data = [
             'title' => 'Extended Title',

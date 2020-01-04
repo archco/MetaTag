@@ -23,9 +23,9 @@ class Meta
      * set properties
      *
      * @param array $data
-     * @return void
+     * @return self
      */
-    public function setProperties(array $array)
+    public function setProperties(array $array): self
     {
         foreach ($array as $key => $value) {
             $this->set($key, $value);
@@ -38,7 +38,7 @@ class Meta
      *
      * @return array
      */
-    public function getProperties()
+    public function getProperties(): array
     {
         return get_object_vars($this);
     }
@@ -48,7 +48,7 @@ class Meta
      *
      * @return array
      */
-    public function defaultValues()
+    public function defaultValues(): array
     {
         return [];
     }
@@ -58,9 +58,9 @@ class Meta
      *
      * @param  string $name
      * @param  string|array $value
-     * @return string
+     * @return self
      */
-    public function set($name, $value)
+    public function set($name, $value): self
     {
         if ($name == 'keywords') {
             return $this->setKeywords($value);
@@ -73,9 +73,9 @@ class Meta
      * get property
      *
      * @param  string $name
-     * @return string
+     * @return string|null
      */
-    public function get($name)
+    public function get($name): ?string
     {
         if (!property_exists($this, $name)) {
             return null;
@@ -89,13 +89,11 @@ class Meta
      * @param string $name
      * @return void
      */
-    public function remove($name)
+    public function remove($name): void
     {
         if (property_exists($this, $name)) {
             unset($this->{$name});
-            return true;
         }
-        return false;
     }
 
     /**
@@ -104,7 +102,7 @@ class Meta
      * @param  array   $array
      * @return bool
      */
-    public function isAssoc(array $array)
+    public function isAssoc(array $array): bool
     {
         return array_keys($array) !== range(0, count($array) - 1);
     }
@@ -113,9 +111,9 @@ class Meta
      * Set `keywords` property
      *
      * @param string|array $value
-     * @return this
+     * @return self
      */
-    public function setKeywords($value)
+    public function setKeywords($value): self
     {
         // if empty value, remove 'keywords' property.
         if (empty($value)) {

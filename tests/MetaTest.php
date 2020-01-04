@@ -8,7 +8,7 @@ class MetaTest extends TestCase
     protected $baseArray;
     protected $extendedArray;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->baseArray = [
             'title' => "Extended Title",

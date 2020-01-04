@@ -19,7 +19,7 @@ class MetaTag extends Meta
      *
      * @return string
      */
-    public function display()
+    public function display(): string
     {
         $items = $this->getProperties();
         $tag = "";
@@ -36,7 +36,7 @@ class MetaTag extends Meta
      * @param  string $content
      * @return string
      */
-    public function makeTag($name, $content)
+    public function makeTag($name, $content): string
     {
         if ($this->isOg($name)) {
             return "<meta property=\"$name\" content=\"$content\">";
@@ -51,7 +51,7 @@ class MetaTag extends Meta
      * @param  string  $name
      * @return bool
      */
-    protected function isOg($name)
+    protected function isOg($name): bool
     {
         return substr($name, 0, 2) == 'og';
     }
