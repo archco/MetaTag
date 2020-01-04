@@ -1,6 +1,5 @@
 {
     "name": "cosmos/metatag",
-    "version": "3.0.0",
     "description": "A helpful library class for making HTML 'meta' tags.",
     "type": "library",
     "license": "MIT",
