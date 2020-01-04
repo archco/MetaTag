@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.0.0] - 2020-01-04
+
+- update phpunit to v8.5
+- Require PHP v7.2 or high.
+
 ## [2.0.0] - 2018-07-08
 
 ### Changed
@@ -28,7 +33,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 First Release. See [README.md](https://github.com/archco/MetaTag/blob/master/README.md).
 
-[Unreleased]: https://github.com/archco/MetaTag/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/archco/MetaTag/compare/v3.0.0...HEAD
+[3.0.0]: https://github.com/archco/MetaTag/compare/v2.0.0...v3.0.0
 [2.0.0]: https://github.com/archco/MetaTag/compare/v1.0.1...v2.0.0
 [1.0.1]: https://github.com/archco/MetaTag/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/archco/MetaTag/compare/51bfd50...v1.0.0
